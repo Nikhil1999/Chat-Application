@@ -16,7 +16,12 @@ class Client
 			while(true) {			
 				String message = in.nextLine();
 				outputStream.writeUTF(message);
+
+				if(message.equalsIgnoreCase("exit")) {
+					break;
+				}
 			}
+			socket.close();
 		} catch(Exception e) {
 			System.out.println(e);
 		}	
