@@ -12,9 +12,10 @@ class Server
 			Socket socket = serverSocket.accept();
 			System.out.println("Client connected successfully...");
 			DataInputStream inputStream = new DataInputStream(socket.getInputStream());
-			String message = (String) inputStream.readUTF();
-			System.out.println("Client says : " + message);
-			serverSocket.close();
+			while(true) {
+				String message = (String) inputStream.readUTF();
+				System.out.println("Client says : " + message);	
+			}
 		} catch(Exception e) {
 			System.out.println(e);
 		}	
