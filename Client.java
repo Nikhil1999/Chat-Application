@@ -10,13 +10,13 @@ class Client
 			Socket socket = new Socket("localhost", 5000);
 			System.out.println("Connected to server successfully...");
 			System.out.println("You can now send messages to the server");
-			System.out.print("Enter your message :-> ");
+			System.out.print("Enter your messages below :- ");
 			DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 			Scanner in = new Scanner(System.in);
-			String message = in.nextLine();
-			outputStream.writeUTF(message);
-			outputStream.flush();
-			socket.close();
+			while(true) {			
+				String message = in.nextLine();
+				outputStream.writeUTF(message);
+			}
 		} catch(Exception e) {
 			System.out.println(e);
 		}	
