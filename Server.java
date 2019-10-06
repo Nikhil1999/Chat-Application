@@ -6,6 +6,11 @@ class Server
 	public static void main(String args[])
 	{
 		try {
+			File file = new File("log.txt");
+			FileOutputStream fos = new FileOutputStream(file);
+			PrintStream ps = new PrintStream(fos);
+			System.setOut(ps);
+
 			ServerSocket serverSocket = new ServerSocket(5000);
 			System.out.println("Server started successfully...");
 			System.out.println("Listening to port no 5000");
